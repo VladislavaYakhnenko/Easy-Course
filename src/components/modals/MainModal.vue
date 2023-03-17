@@ -13,8 +13,23 @@
 import CloseIcon from "@/components/icons/CloseIcon.vue";
 import LockedLessonModal from "@/components/modals/LockedLessonModal.vue";
 import {useCourseDetailsStore} from "@/stores";
+import {onMounted, onUnmounted} from "vue";
 
 const courseDetailsStore = useCourseDetailsStore();
+
+const handleEscapeKey = (event) => {
+  if (event.key === 'Escape') {
+    courseDetailsStore.closeModal()
+  }
+};
+
+onMounted(() => {
+  window.addEventListener('keydown', handleEscapeKey);
+})
+
+onUnmounted(() => {
+  window.removeEventListener('keydown', handleEscapeKey);
+});
 
 </script>
 

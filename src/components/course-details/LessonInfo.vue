@@ -32,6 +32,7 @@
     </div>
     <LessonVideoPreview
         v-if="courseDetailsStore.getLessonState(lesson?.id)"
+        :id="lesson?.id"
         :order="lesson?.order"
         :previewImageLink="lesson?.previewImageLink"
         :videoLink="lesson?.link"
