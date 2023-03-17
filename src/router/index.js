@@ -10,9 +10,10 @@ const router = createRouter({
             component: AllCoursesView,
         },
         {
-            path: "/course",
+            path: "/course/:courseId",
             name: "about-course",
             component: () => import("../views/CourseDetailsView.vue"),
+            props: true,
         },
     ],
 });
