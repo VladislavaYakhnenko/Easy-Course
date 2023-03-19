@@ -8,8 +8,13 @@
       <a href="#"
          class="px-2 py-2"
       >
-        <span class="sr-only">Previous</span>
-        <ChevronLeftIcon class="h-5 w-5" aria-hidden="true" />
+        <span class="sr-only">
+          Previous
+        </span>
+        <ChevronLeftIcon
+            class="h-5 w-5"
+            aria-hidden="true"
+        />
       </a>
     </button>
     <span aria-current="page" class="relative z-10 inline-flex items-center bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">
@@ -23,8 +28,13 @@
       <a href="#"
          class="px-2 py-2"
       >
-        <span class="sr-only">Next</span>
-        <ChevronRightIcon class="h-5 w-5" aria-hidden="true" />
+        <span class="sr-only">
+          Next
+        </span>
+        <ChevronRightIcon
+            class="h-5 w-5"
+            aria-hidden="true"
+        />
       </a>
     </button>
   </nav>

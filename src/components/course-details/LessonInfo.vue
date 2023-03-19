@@ -7,7 +7,7 @@
       <span class="hidden col-span-1 h-5 w-5 rounded-full bg-indigo-600 text-white text-sm max-md:flex justify-center items-center">
         {{ number }}
       </span>
-      <span class="col-span-6 max-md:col-span-7 max-xxs:col-span-10 flex items-center font-semibold text-lg text-gray-700 font-normal max-xl:text-base max-md:text-xs max-xs:text-base max-xxs:text-sm whitespace-nowrap max-w-full overflow-hidden text-ellipsis">
+      <span class="col-span-6 max-md:col-span-7 max-xxs:col-span-10 flex items-center font-semibold text-lg text-gray-700 font-normal max-xl:text-base max-md:text-xs max-xs:text-base max-xxs:text-sm whitespace-nowrap overflow-hidden text-ellipsis">
         {{ lesson?.title }}
       </span>
       <div class="col-span-3 flex items-center justify-center max-xxs:hidden">
@@ -30,7 +30,7 @@
         />
       </div>
     </div>
-    <LessonVideoPreview
+    <LessonVideo
         v-if="courseDetailsStore.getLessonState(lesson?.id)"
         :id="lesson?.id"
         :order="lesson?.order"
@@ -41,11 +41,11 @@
 </template>
 
 <script setup>
+import {useCourseDetailsStore} from "@/stores";
 import DurationComponent from "@/components/course-details/DurationComponent.vue";
 import ChevronDownIcon from "@/components/icons/ChevronDownIcon.vue";
 import LockedIcon from "@/components/icons/LockedIcon.vue";
-import {useCourseDetailsStore} from "@/stores";
-import LessonVideoPreview from "@/components/course-details/LessonVideoPreview.vue";
+import LessonVideo from "@/components/course-details/LessonVideo.vue";
 import ChevronUpIcon from "@/components/icons/ChevronUpIcon.vue";
 
 const props = defineProps({

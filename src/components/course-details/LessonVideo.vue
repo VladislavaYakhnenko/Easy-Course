@@ -72,15 +72,12 @@ const handleKeyDown = (event) => {
   switch (event.code) {
     case 'KeyA':
       video.playbackRate -= 0.5;
-      console.log(video.playbackRate)
       break;
     case 'KeyD':
       video.playbackRate += 0.5;
-      console.log(video.playbackRate)
       break;
     case 'KeyW':
       video.playbackRate = 1;
-      console.log(video.playbackRate)
       break;
     default:
       break;
