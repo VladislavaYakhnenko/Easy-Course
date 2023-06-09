@@ -1,16 +1,15 @@
 <template>
-  <p class="font-montserrat font-normal text-gray-700 max-lg:text-sm max-md:text-xs">
+  <p class="font-montserrat font-normal text-gray-700 dark:text-indigo-100 max-lg:text-sm max-md:text-xs">
     {{ description }}
   </p>
 </template>
 
-<script setup>
-const props = defineProps({
-  description: {
-    type: String,
-    required: true,
-  }
-})
+<script setup lang="ts">
+interface Props {
+  description: string
+}
+
+const props = defineProps<Props>()
 </script>
 
 <style scoped>

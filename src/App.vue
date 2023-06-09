@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full min-h-screen relative flex flex-col items-center justify-between">
+  <div class="w-full min-h-screen relative flex flex-col items-center justify-between dark:bg-neutral-900">
     <header class="w-full fixed top-0 z-40">
       <HeaderComponent/>
     </header>
@@ -12,16 +12,18 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import HeaderComponent from "@/components/layout/HeaderComponent.vue";
-import {useCoursesStore} from "@/stores";
+import { useCoursesStore, useThemeStore } from "@/stores";
 import {onMounted} from "vue";
 import FooterComponent from "@/components/layout/FooterComponent.vue";
 
 const courseStore = useCoursesStore();
+const themeStore = useThemeStore();
 
 onMounted(() => {
   courseStore.fetchCourses();
+  themeStore.setTheme();
 })
 </script>
 

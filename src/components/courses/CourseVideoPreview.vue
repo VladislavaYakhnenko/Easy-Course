@@ -1,8 +1,8 @@
 <template>
   <div
-      class="rounded-2xl shadow-md ring-white ring-2 overflow-hidden w-full aspect-video"
-      @mouseover="playVideo"
-      @mouseleave="pauseVideo"
+      class="rounded-2xl shadow-md ring-white dark:ring-gray-400 ring-2 overflow-hidden w-full aspect-video"
+      @mouseover="playVideo(videoRef)"
+      @mouseleave="pauseVideo(videoRef)"
   >
     <video
         class="w-full h-full object-cover"
@@ -15,43 +15,25 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {onMounted, ref} from "vue";
-import Hls from "hls.js/dist/hls.min";
+import {
+  createPlayer,
+  pauseVideo,
+  playVideo
+} from "@/helpers/video_player";
 
-const videoRef = ref(null);
+const videoRef = ref();
 
-const props = defineProps({
-  previewImageLink: {
-    type: String,
-    required: true,
-  },
-  videoLink: {
-    type: String,
-    required: true,
-  }
-})
+interface Props {
+  previewImageLink: string,
+  videoLink: string
+}
 
-const playVideo = () => {
-  if (videoRef.value) {
-    videoRef.value.play();
-  }
-};
-
-const pauseVideo = () => {
-  if (videoRef.value) {
-    videoRef.value.pause();
-  }
-};
+const props = defineProps<Props>();
 
 onMounted(() => {
-  if (Hls.isSupported()) {
-    const hls = new Hls();
-    hls.loadSource(props.videoLink);
-    hls.attachMedia(videoRef.value);
-  } else if (videoRef.value.canPlayType('application/vnd.apple.mpegurl')) {
-    videoRef.value.src = props.videoLink;
-  }
+  createPlayer(videoRef.value, props.videoLink)
 });
 
 </script>

@@ -1,0 +1,3 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CoursePreview > renders the course preview 1`] = `"<router-link-stub to=\\"[object Object]\\" replace=\\"false\\" custom=\\"false\\" ariacurrentvalue=\\"page\\"></router-link-stub>"`;
