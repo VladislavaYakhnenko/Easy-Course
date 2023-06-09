@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [For user](#for-user)
+* [Infrastructure](#infrastructure)
 * [Project Setup](#project-setup)
 
 # General Info
@@ -28,6 +29,33 @@ For the developing process were used:
 - Go to course page. There's all necessary info about course and lessons
 - Choose the lesson you like (some of them are locked - you'll be warned about that) and open the video
 - Don't worry, the progress of each lesson in always saved. Moreover, you can go to PiP mode or regulate the speed using your keyboard
+
+# Infrastructure
+
+Infrastructure in this context means different layers of application, defines how they relate to each other
+
+### General scheme of the app
+
+![layers](src/assets/images/project-structure.png)
+
+#### Meaning of arrows
+
+A --> B means that A depends on B
+
+### Description
+
+I defined 3 main layers in my project: views, application, domain + infrastructure (I consider that it's one layer)
+
+1) Views - components, that contain minimum of business logic, can communicate with store
+
+    - presentation (ui, modals, common components - don't depend on context a lot, have their own functions)
+    - container and structural components - example: Coursecard component - creates the structure of certain block
+
+2) Application - the glue code that puts together the entire application (for example, pages(called views in the project )), these elements also know about store
+
+3) Domain + Infrastructure - one layer in my case
+
+    - stores - they contain all business logic, make all http requests and manage states
 
 ## Project Setup
 

@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import {useCourseDetailsStore} from "@/stores";
 import LoaderSpinner from "@/components/ui/LoaderSpinner.vue";
 import SideDetailsComponent from "@/components/course-details/SideDetailsComponent.vue";
@@ -33,9 +33,11 @@ import {onMounted} from "vue";
 
 const courseDetailsStore = useCourseDetailsStore();
 
-const props = defineProps({
-  courseId: String
-});
+interface Props {
+  courseId: string
+}
+
+const props = defineProps<Props>()
 
 onMounted(() => {
   courseDetailsStore.getCourseDetails(props.courseId);

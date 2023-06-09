@@ -9,7 +9,7 @@
     </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import CloseIcon from "@/components/icons/CloseIcon.vue";
 import LockedLessonModal from "@/components/modals/LockedLessonModal.vue";
 import {useCourseDetailsStore} from "@/stores";
@@ -17,7 +17,7 @@ import {onMounted, onUnmounted} from "vue";
 
 const courseDetailsStore = useCourseDetailsStore();
 
-const handleEscapeKey = (event) => {
+const handleEscapeKey = (event: KeyboardEvent): void => {
   if (event.key === 'Escape') {
     courseDetailsStore.closeModal()
   }
