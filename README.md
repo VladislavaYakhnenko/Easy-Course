@@ -65,6 +65,12 @@ To run this project, install it locally using npm:
 npm install
 ```
 
+To add the library of components locally run:
+
+```sh
+npm link error-handler-lib
+```
+
 ### Compile
 
 ```sh
